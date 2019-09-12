@@ -1,0 +1,29 @@
+.change-municipality-modal {
+  .rodal-dialog {
+    margin: auto;
+    @include size(320px !important, 150px !important);
+
+    @include breakpoint(medium only) {
+      @include size(300px !important, 175px !important);
+    }
+
+  }
+
+  &.en{
+    .rodal-dialog {
+      @include size(320px !important, 190px !important);
+
+      @include breakpoint(medium only) {
+        @include size(300px !important, 220px !important);
+      }
+    }
+  }
+
+  .content {
+    p {
+      font-size: 20px;
+      font-weight: bold;
+      color: #1f2f38;
+    }
+  }
+}

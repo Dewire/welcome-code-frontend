@@ -1,0 +1,107 @@
+.tab-filter-inner {
+  .lh38 {
+    line-height: 38px;
+  }
+
+  .description {
+    font-size: 14px;
+    line-height: 1.67;
+    margin-top: 0;
+  }
+
+  .mid-label {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .checkboxes-container {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .commute-selector-wrapper {
+    position: relative;
+    height: 50px;
+    padding: 20px 0 0 0;
+
+    .commute-checkbox-container {
+      position: absolute;
+
+      &.car {
+        left: 0;
+      }
+
+      &.transit {
+        left: calc(25% + 13px);
+      }
+
+      &.bike {
+        right: calc(25% + 13px);
+      }
+
+      &.walk {
+        right: 0;
+      }
+    }
+  }
+
+  .commute-heading-container {
+    position: relative;
+
+    .time-label {
+      margin: 0;
+      font-size: 18px;
+      font-weight: bold;
+      @include absolute($right: 0, $top: 0);
+    }
+  }
+
+  .range-wrapper {
+    margin-top: 20px;
+  }
+
+  .rc-slider-handle {
+    &:focus, &:active, &:hover {
+      border: none;
+      box-shadow: none;
+    }
+  }
+
+  .slider-handle {
+    @include size(28px);
+    background: #000;
+    border-radius: 50%;
+    margin-top: -7px;
+  }
+
+  .expandable-content-header {
+    margin: 15px 0 0 0;
+    padding-bottom: 10px;
+    border-bottom: solid 1px #e1e1e1;
+  }
+
+  .poi-container {
+    .options-container:nth-child(+n+4){
+      display: none;
+    }
+
+    &.show-more{
+      .options-container {
+        display: block;
+      }
+    }
+  }
+
+  .blue-link {
+    font-size: 15px;
+    margin-top: 20px;
+    text-decoration: underline;
+  }
+
+  .share-icon {
+    margin-top: 15px;
+    float: right;
+    width: inherit;
+  }
+}

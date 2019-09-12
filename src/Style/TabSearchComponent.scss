@@ -1,0 +1,20 @@
+.tab-search-inner {
+  .results-wrapper {
+    .result-row {
+      position: relative;
+      padding: 12px 30px;
+      border-bottom: solid 1px #e1e1e1;
+
+      button {
+        font-size: 16px;
+        text-transform: capitalize;
+        color: #000;
+      }
+
+      .map-icon {
+        @include absolute($top: calc(50% - 13px), $left: 10px);
+        @include svg-icon-w-fallback('../Images/Icons/icon_black_map_marker.svg', '', 13px, 20px);
+      }
+    }
+  }
+}

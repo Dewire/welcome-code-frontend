@@ -1,0 +1,74 @@
+.commute-time {
+  .top-row {
+    border-bottom: solid 1px #e1e1e1;
+    margin-top: 15px;
+
+    .result {
+      margin: 0;
+      line-height: 22px;
+    }
+
+    .distance {
+      margin: 20px 0 0 0;
+      text-align: right;
+
+      @include breakpoint(small only){
+        margin: 0 0 5px 0;
+        text-align: left;
+      }
+    }
+  }
+
+  .commute-row {
+    .commute-container {
+      border-bottom: solid 1px #e1e1e1;
+
+      .inner {
+        width: calc(#{$large-width} / 4) !important;
+        padding: 15px 0;
+        text-align: center;
+
+        p {
+          padding-left: 45px;
+          padding-top: 5px;
+          height: 34px;
+          margin: 0;
+        }
+
+        @include breakpoint(medium only){
+          width: calc(#{$medium-width} / 4) !important;
+        }
+
+        @include breakpoint(small only){
+          width: 100% !important;
+          text-align: right;
+        }
+
+        &.car {
+          @include themifySvg('car', '', auto, 34px);
+          background-position: 0 center;
+        }
+
+        &.public {
+          @include themifySvg('bus', '', auto, 34px);
+          background-position: 0 center;
+        }
+
+        &.bike {
+          @include themifySvg('bike', '', auto, 34px);
+          background-position: 0 center;
+        }
+
+        &.walk {
+          @include themifySvg('walk', '', auto, 34px);
+          background-position: 27px center;
+          text-align: right;
+
+          @include breakpoint(small only){
+            background-position: 10px center;
+          }
+        }
+      }
+    }
+  }
+}

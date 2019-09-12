@@ -1,0 +1,112 @@
+.checkbox-wrapper {
+  position: relative;
+
+  input:focus + label {
+    @include themify() {
+      outline: 1px dashed themed('color');
+    }
+  }
+
+  label {
+    display: inline-block;
+    font-weight: 600;
+    cursor: pointer;
+
+    &.basic {
+      &:before {
+        content: "";
+        @include themifySvg('checkboxUnchecked', '', 25px, 25px);
+        display: block;
+        float: left;
+      }
+      &.has-children {
+        &:before {
+          margin-right: 10px;
+        }
+      }
+    }
+
+    &.commute-checkbox {
+      border-radius: 50%;
+      cursor: pointer;
+
+      &.car {
+        @include size(50px);
+        @include svg-icon-w-fallback-no-element-width('../Images/Icons/icon_car_grey.svg', '', 30px, auto);
+      }
+
+      &.transit {
+        @include size(50px);
+        @include svg-icon-w-fallback-no-element-width('../Images/Icons/icon_bus_grey.svg', '', auto, 30px);
+      }
+
+      &.bike {
+        @include size(50px);
+        @include svg-icon-w-fallback-no-element-width('../Images/Icons/icon_bike_grey.svg', '', auto, 28px);
+      }
+
+      &.walk {
+        @include size(50px);
+        @include svg-icon-w-fallback-no-element-width('../Images/Icons/icon_walk_grey.svg', '', auto, 30px);
+      }
+    }
+
+    &.filter-option {
+      width: 100% !important;
+      margin: 5px 0 5px 0;
+      @include themifySvg('checkboxUnchecked', '', 20px, 20px);
+      background-position: left !important;
+      font-size: 15px;
+      font-weight: 500;
+      padding: 0 0 2px 25px;      
+
+      &.checked {
+        @include themifySvg('checkboxChecked', '', 20px, 20px);
+        @include themify() {
+          color: themed('color');
+        }
+      }
+
+      &.unchecked {
+        color: #000 !important;
+      }
+    }
+  }
+
+  input {
+    position: absolute !important;
+    left: -9999px !important;
+
+    &:checked + label {
+      &.basic {
+        &:before {
+          @include themifySvg('checkboxChecked', '', 25px, 25px);
+        }
+      }
+
+      &.commute-checkbox {
+        &.car {
+          @include svg-icon-w-fallback-no-element-width('../Images/Icons/icon_car_white.svg', '', 30px, auto);
+        }
+
+        &.transit {
+          @include svg-icon-w-fallback-no-element-width('../Images/Icons/icon_bus_white.svg', '', auto, 30px);
+        }
+
+        &.bike {
+          @include svg-icon-w-fallback-no-element-width('../Images/Icons/icon_bike_white.svg', '', auto, 28px);
+        }
+
+        &.walk {
+          @include svg-icon-w-fallback-no-element-width('../Images/Icons/icon_walk_white.svg', '', auto, 30px);
+        }
+
+        @include size(50px);
+        box-shadow: inset 1px 2px 1px 0 rgba(0, 0, 0, 0.3);
+        @include themify() {
+          background-color: themed('backgroundColor');
+        }
+      }      
+    }
+  }
+}

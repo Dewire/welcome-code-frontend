@@ -1,0 +1,25 @@
+.filter-wrapper  {
+  input {
+    &[type="button"] {
+      border: none;
+      background-color: transparent;
+    }
+  }
+
+  .gray-label {
+    color: #899195;
+    font-size: 15px;
+    font-weight: 600;
+  }
+  
+  .icon-close {
+    background-image: preload-image("../Images/Icons/icon_close_black.svg");
+    width: 24px;
+    height: 24px;
+  }
+
+  .input-house {
+
+  }
+}
+

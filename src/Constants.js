@@ -1,0 +1,129 @@
+export const ACTION_TYPES = {
+  RECEIVE_MUNICAPALITY_DATA: 'RECEIVE_MUNICAPALITY_DATA',
+  CLEAR_MUNICAPALITY_DATA: 'CLEAR_MUNICAPALITY_DATA',
+  CLEAR_MAP_STATE: 'CLEAR_MAP_STATE',
+  SET_COMMUTE_DESTINATION: 'SET_COMMUTE_DESTINATION',
+  SET_FILTERED_AREAS: 'SET_FILTERED_AREAS',
+  SET_POI_MARKERS: 'SET_POI_MARKERS',
+  RECEIVE_AREAS_IN_MUNICIPALITY: 'RECEIVE_AREAS_IN_MUNICIPALITY',
+  RECEIVE_ALL_AREAS_EXCLUDE_BY_MUNICIPALITY: 'RECEIVE_ALL_AREAS_EXCLUDE_BY_MUNICIPALITY',
+  RECEIVE_ABOUT_MUNICAPALITY_DATA: 'RECEIVE_ABOUT_MUNICAPALITY_DATA',
+  RECEIVE_AREA_OVERVIEW_DATA: 'RECEIVE_AREA_OVERVIEW_DATA',
+  RECEIVE_ABOUT_SERVICE_DATA: 'RECEIVE_ABOUT_SERVICE_DATA',
+  RECEIVE_AREA_AVERAGE_PRICE: 'RECEIVE_AREA_AVERAGE_PRICE',
+  CHANGE_LANGUAGE: 'CHANGE_LANGUAGE',
+  SET_MAP_VALUES: 'SET_MAP_VALUES',
+  CHANGE_LANGUAGE_VISIBILITY: 'CHANGE_LANGUAGE_DROPDOWN',
+  CHANGE_INFORMATION_VISIBILITY: 'CHANGE_INFORMATION_VISIBILITY',
+  CHANGE_OPEN_TAB: 'CHANGE_OPEN_TAB',
+  CHANGE_FAV_SORT_OPTION: 'CHANGE_FAV_SORT_OPTION',
+  CLOSE_TOP_MENU_DROPDOWNS: 'CLOSE_TOP_MENU_DROPDOWNS',
+  TOGGLE_EXPLORE_BUTTON: 'TOGGLE_EXPLORE_BUTTON',
+  TOGGLE_MAP_LAYER: 'TOGGLE_MAP_LAYER',
+  TOGGLE_HAMBURGER_MENU: 'TOGGLE_HAMBURGER_MENU',
+  TOGGLE_CONTACT_NOTIFICATION: 'TOGGLE_CONTACT_NOTIFICATION',
+  TOGGLE_FULL_VIEW_PAGE: 'TOGGLE_FULL_VIEW_PAGE',
+  TOGGLE_HIDE_DROP_DOWN: 'TOGGLE_HIDE_DROP_DOWN',
+  TOGGLE_SHOW_ALL: 'TOGGLE_SHOW_ALL',
+  TOGGLE_NAVBAR_ABOUT: 'TOGGLE_NAVBAR_ABOUT',
+  TOGGLE_FILTER_STATE: 'TOGGLE_FILTER_STATE',
+  TOGGLE_FILTER_EXPANDED: 'TOGGLE_FILTER_EXPANDED',
+  TOGGLE_TAB_LOADING: 'TOGGLE_TAB_LOADING',
+  TOGGLE_GOT_COMMUTE_FOR_AREAS: 'TOGGLE_GOT_COMMUTE_FOR_AREAS',
+  UPDATE_AREA_FAVOURITE: 'UPDATE_AREA_FAVOURITE',
+  UPDATE_AREA_FAVOURITES: 'UPDATE_AREA_FAVOURITES',
+  UPDATE_SELECT_FAVOURITE: 'UPDATE_SELECT_FAVOURITE',
+  DELETE_SELECTED_FAVOURITES: 'DELETE_SELECTED_FAVOURITES',
+};
+
+export const TAB_TYPES = {
+  FILTER: 'FILTER',
+  FAVORITES: 'FAVORITES',
+  SEARCH: 'SEARCH',
+  CONTACT: 'CONTACT',
+};
+
+export const SECTION_TYPE = {
+  TEXT: 'TEXT',
+  IMAGES: 'IMAGES',
+  VIDEO: 'VIDEO',
+  DISTANCE_TABLE: 'DISTANCE_TABLE',
+  STREET_VIEW: 'STREET_VIEW',
+  COMMUTE_TIME: 'COMMUTE_TIME',
+  HOUSE_LISTINGS: 'HOUSE_LISTINGS',
+};
+
+export const URL_TYPES = {
+  ABOUT_MUNICIPALITY: 'about-municipality',
+  ABOUT_SERVICE: 'about-service',
+  START: 'start',
+  MAP: 'map',
+  AREA: 'area',
+  COMPARE: 'compare',
+  LICENSES: 'licenses',
+};
+
+export const HOUSING_TYPES = {
+  HOUSE: 2,
+  APARTMENT: 1,
+};
+
+export const FAV_SORT_OPTIONS = {
+  VICINITY: '1',
+  ASC: '2',
+};
+
+export const DISTANCE_TABLE_DESTINATIONS = [
+  { name: 'Umeå', coordinates: { lat: 63.827861, long: 20.259566 } },
+  { name: 'Vemdalen', coordinates: { lat: 62.452268, long: 13.839818 } },
+  { name: 'Åre', coordinates: { lat: 63.407282, long: 13.074386 } },
+  { name: 'Stockholm', coordinates: { lat: 59.331756, long: 18.079954 } },
+  { name: 'Göteborg', coordinates: { lat: 57.720647, long: 11.964733 } },
+  { name: 'Malmö', coordinates: { lat: 55.599818, long: 13.001769 } },
+];
+
+export const FACT_TYPES = {
+  COMMUTE_DESTINATION: 'commuteDestination',
+  AVERAGE_HOUSE_COST: 'averageHouseCost',
+  HEALTH_CENTER: 'healthCenter',
+  GROCERY_STRORE: 'groceryStore',
+  PHARMACY: 'pharmacy',
+  HOSPITAL: 'hospital',
+};
+
+export const FACT_DISTANCE_QUERIES = [
+  { query: '', googleType: 'pharmacy', type: FACT_TYPES.PHARMACY },
+  { query: 'Livsmedelsbutik', googleType: '', type: FACT_TYPES.GROCERY_STRORE },
+  { query: 'Sjukhus', googleType: '', type: FACT_TYPES.HOSPITAL },
+  { query: 'Vårdcentral', googleType: '', type: FACT_TYPES.HEALTH_CENTER },
+];
+
+export const QUERY_PARAMS = {
+  AREAS: 'areas',
+  SORT: 'sort',
+  MUNICIPALITIES: 'municipalities',
+};
+
+export const MAP_PARAMS = {
+  MIN_ZOOM: 6,
+  SWE_BOUNDS: [
+    [69.724907, 27.145762],
+    [54.587985, 10.002162],
+  ],
+};
+
+export const DISTANCE_API_CALL_TYPES = { AREA_CARD: 1, FILTER: 2 };
+
+export const CONF_NAME = process.env.REACT_APP_ENV
+  ? process.env.REACT_APP_ENV
+  : 'dev';
+
+export const GOOGLE_ANALYTICS_ID = process.env.REACT_APP_GA_ID;
+
+export const THEMES = new Map([
+  ['green', { classes: ['theme-green-primary', 'theme-green-secondary'], primaryColor: '#2ba777' }],
+  ['orange', { classes: ['theme-orange-primary', 'theme-orange-secondary'], primaryColor: '#de5f3b' }],
+  ['blue', { classes: ['theme-blue-primary', 'theme-blue-secondary'], primaryColor: '#4a90a6' }],
+]);
+
+export const MAX_COMPARE_VALUE = 10;

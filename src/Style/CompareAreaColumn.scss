@@ -1,0 +1,95 @@
+.column-wrapper {
+  p {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1f2f38;
+    text-align: center;
+  }
+
+  .compare-separator {
+    height: 40px;
+  }
+
+  .compare-value {
+    &.show-for-medium {
+      p {
+        line-height: 100px;
+        font-size: 18px;
+        @include breakpoint(medium only) {
+          line-height: 80px;
+        }
+        span {
+          font-weight: normal;
+        }
+      }
+    }
+  }
+
+  .value-wrapper {
+    height: 100px;
+    @include breakpoint(medium only) {
+      height: 80px;
+    }
+    @include breakpoint(medium) {
+      @include odd {
+        background-color: #f6f6f6;
+      }
+    }
+  }
+
+  .show-for-small-only {
+    .metric-value {
+      line-height: 45px;
+    }
+  }
+
+  .metric-type {
+    font-size: 13px;
+    font-weight: normal;
+    margin-top: -18px;
+  }
+
+  .bg-color {
+    @include themify() {
+      background-color: themed('backgroundColor');
+    }
+  }
+
+  .name {
+    height: 80px;
+    text-overflow: ellipsis;
+    @include themify() {
+      border-color: themed('btnHoverBackgroundColor');
+    }
+    @include breakpoint(medium only) {
+      height: 50px;
+    }
+    @include breakpoint(small only) {
+      height: 40px;
+    }
+    p {
+      color: #ffffff;
+      text-transform: capitalize;
+      line-height: 80px;
+      @include breakpoint(medium only) {
+        line-height: 50px;
+      }
+      @include breakpoint(small only) {
+        line-height: 40px;
+      }
+    }
+  }
+
+  .area-thumbnail {
+    background-size: cover;
+    background-position: center;
+    margin: 0 auto;
+    @include size(100%, 215px);
+    @include breakpoint(medium only) {
+      @include size(100%, 155px);
+    }
+    @include breakpoint(small only) {
+      @include size(100%, 75px);
+    }
+  }
+}

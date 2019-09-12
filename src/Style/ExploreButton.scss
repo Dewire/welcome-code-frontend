@@ -1,0 +1,53 @@
+.explore-button {
+  padding: 0;
+  border: none;
+  position: absolute;
+  bottom: -60px;
+  border-radius: 50%;
+  left: calc(50% - 60px);
+  background: preload-image("../Images/Icons/icon_arrow_down.svg") no-repeat 50% 75%;
+  cursor: pointer;
+
+  @include themify() {
+    background-color: themed('backgroundColor') !important;
+  }
+
+  &.btn-content {
+    width: 120px;
+    height: 117px;
+    color: #fff;
+    display: block;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 0.8px;
+
+    p {
+      margin: 0;
+      line-height: 117px;
+    }
+  }
+
+  &.show-all {
+    background: preload-image("../Images/Icons/icon_arrow_up.svg") no-repeat 50% 82%;
+
+    @include breakpoint(small only) {
+      left: calc(50% - 45px);
+
+      .btn-content {
+        width: 90px;
+        height: 90px;
+      }
+
+      p {
+        display: none;
+      }
+    }
+
+    &.btn-content {
+      p {
+        line-height: 139px;
+      }
+    }
+  }
+}

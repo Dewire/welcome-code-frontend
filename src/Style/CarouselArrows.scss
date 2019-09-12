@@ -1,0 +1,15 @@
+.carousel-arrow {
+  cursor: pointer;
+  z-index: 1;
+  position: absolute;
+  @include size(52px);
+  -webkit-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  &.prev-arrow {
+    background-image: preload-image("../Images/Icons/icon_area_nav_prev.svg");
+  }
+  &.next-arrow {
+    background-image: preload-image("../Images/Icons/icon_area_nav_next.svg");
+  }
+}

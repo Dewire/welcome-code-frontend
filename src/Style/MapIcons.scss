@@ -1,0 +1,269 @@
+.map-items {
+  background-color: #3693e6;
+  float: left;
+  width: 1000px;
+  height: 1000px;
+}
+
+.map-pin-poi {
+  .icon-pin {
+    @include size(29px, 41px);
+    background-image: preload-image("../Images/Icons/icon_map_pin_white.svg");
+    position: absolute;
+    z-index: 2;
+
+    img {
+      @include size(15px);
+      margin: 7px;
+    }
+  }
+}
+
+/* Area map pin */
+.map-pin-area {
+  position: relative;
+
+  &.theme {
+    .icon-pin {
+      @include size(29px, 41px);
+      position: absolute;
+      z-index: 2;
+      &.icon-theme {
+        @include themifyBackground('mapPin');
+        &.transparent {
+          @include themifyBackground('mapPinTransparent');
+        }
+      }
+      &.fav {
+        @include themifyBackground('mapPinFav');
+        @include size(39px, 46px);
+        left: -10px;
+        top: -5px;
+      }
+      &.excluded {
+        background-image: preload-image("../Images/Icons/icon_map_pin_grey.svg") !important;
+        background-size: 29px 41px;
+        opacity: 0.7;
+        &.fav {
+          background-image: preload-image("../Images/Icons/icon_map_pin_fav_grey.svg") !important;
+          background-size: 41px 52px;
+        }
+      }
+    }
+
+    .area-name {
+      @include absolute($left: 8px, $top: 1px);
+      @include box-shadow($top: 1px, $left: 1px, $blur: 1px, $color: rgba(0,0,0,0.2));
+      background-color: #fff;
+      height: 26px;
+      border-radius: 100px;
+      overflow: hidden;
+      opacity: 0.9;
+      white-space: nowrap;
+      p {
+        text-transform: capitalize;
+        color: #000;
+        font-size: 13px;
+        font-weight: 600;
+        margin: 4px 0 0 25px;
+        padding-right: 12px;
+      }
+    }
+  }
+
+  &.selected-map-marker {
+    .icon-pin {
+      display: none !important;
+      @include breakpoint(small only) {
+        display: block !important;
+        background-image: preload-image("../Images/Icons/icon_map_pin_grey.svg") !important;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 29px 41px;
+        width: 29px;
+        height: 41px;
+
+        &.fav {
+          left: -5px;
+          top: -3px;
+        }
+      }
+    }
+
+    .area-name {
+      display: none !important;
+      @include breakpoint(small only) {
+        display: block !important;
+      }
+    }
+  }
+}
+
+/* Map pin multiple */
+.map-pin-multiple-wrapper {
+
+  .icon-pin {
+    background: preload-image("../Images/Icons/icon_map_pin_multiple.svg") no-repeat;
+    @include size(44px, 50px);
+
+    p {
+      font-size: 13px;
+      text-align: center;
+      padding-top: 14px;
+      span {
+        font-size: 12px;
+        font-weight: normal;
+      }
+    }
+    &.fav {
+      background: preload-image("../Images/Icons/icon_map_pin_multiple_fav.svg") no-repeat;
+      width: 46px;
+    }
+  }
+  &.excluded {
+    opacity: 0.7 !important;
+  }
+}
+
+.map-view-button-wrapper {
+  input {
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .zoom {
+    font-size: 30px;
+    font-family: "Courier New", Courier, monospace;
+
+    &.tab-offset {
+      right: 575px;
+    }
+  }
+
+  .zoom-out {
+    @include fixed($right: 125px, $bottom: 20px);
+    @include size(29px, 31px);
+
+    @include breakpoint(medium down) {
+      display: none;
+    }
+  }
+
+  .zoom-in {
+    @include fixed($right: 125px, $bottom: 55px);
+    @include size(29px, 31px);
+
+    @include breakpoint(medium down) {
+      display: none;
+    }
+  }
+
+  .btn-layer-wrapper {
+    &.satellite {
+      button {
+        .icon {
+          @include svg-icon-w-fallback('../Images/Icons/icon_layer_map.svg', '', 25px, 18px);
+          background-size: auto 18px;
+        }
+      }
+    }
+
+    button {
+      @include fixed($left: 30px, $bottom: 20px);
+      @include size(120px, 40px);
+      @include themify() {
+        background-color: themed('backgroundColor');
+      }
+
+      p {
+        margin: 0;
+        padding-left: 25px;
+      }
+
+      .icon {
+        @include absolute($left: 22px, $top: calc(50% - 9px));
+        @include svg-icon-w-fallback('../Images/Icons/icon_layer_satellite.svg', '', 25px, 18px);
+        background-size: auto 18px;
+      }
+
+      @include breakpoint(large) {
+        width: 140px;
+        font-size: 15px;
+      }
+
+      @include breakpoint(medium down){
+        font-size: 14px;
+      }
+
+      @include breakpoint(small only) {
+        display: none;
+      }
+    }
+
+    &.map-locations {
+      button {
+        @include fixed($left: 180px, $bottom: 20px);
+        width: 110px;
+        padding-left: 11px;
+
+        .svg {
+          fill: #FFF;
+          margin: 0 3px;
+          float: left;
+        }
+
+        @include breakpoint(medium only) {
+          left: 160px;
+        }
+
+        @include breakpoint(small only) {
+          left: 20px;
+          display: block;
+        }
+      }
+    }
+    
+    &.map-reload-filter {
+      button {
+        @include fixed($left: 30px, $top: 20px);
+        width: 145px;
+
+        @include breakpoint(medium only) {
+          width: 46px;
+        }
+
+        @include breakpoint(small only) {
+          display: block;
+          width: 46px;
+          left: 20px;
+        }
+
+        .icon {
+          @include absolute($left: 11px, $top: calc(50% - 9px));
+          @include svg-icon-w-fallback('../Images/Icons/icon_loader_white.svg', '', 25px, 18px);
+          background-size: auto 18px;
+          
+          &.rotate{
+            -webkit-animation:spin 2s linear infinite;
+            -moz-animation:spin 2s linear infinite;
+            animation:spin 2s linear infinite;
+
+            @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+            @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+            @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+          }
+        }
+        
+        p {
+          @include breakpoint(medium only) {
+          display: none;
+          }
+          @include breakpoint(small only) {
+          display: none;
+          }
+        }
+      }
+
+    }
+  }
+}

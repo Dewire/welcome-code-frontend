@@ -1,0 +1,161 @@
+.full-view-page-wrapper {
+  @include absolute($top: 0, $bottom: 0, $right: 0, $left: 0);
+  z-index: 2;
+  background-color: #FFF;
+  text-align: left;
+  min-height: 100vh;
+
+  .preamble, .expandable-content {
+    a {
+      color: #3693e6;
+    }
+  }
+
+  .main-text-content {
+    width: $large-width;
+    margin: 0 auto;
+
+    @include breakpoint(medium only) {
+      width: $medium-width;
+    }
+
+    @include breakpoint(small only) {
+      width: $small-width;
+    }
+
+    @media screen and (max-width: 320px) {
+      width: $xsmall-width;
+    }
+  }
+
+  .slider-wrapper {
+    margin: 0 auto;
+    width: $large-width;
+    @include breakpoint(small only) {
+      width: 100%;
+    }
+
+    @include breakpoint(medium only) {
+      width: $medium-width;
+    }
+    &.full-width-slide {
+      width: 100%;
+      .slick-slide {
+        img {
+          max-width: 100%;
+        }
+      }
+    }
+  }
+
+  .full-width-item {
+    margin: auto;
+    max-width: $large-width;
+
+    @include breakpoint(small only) {
+      width: 100%;
+    }
+
+    @include breakpoint(medium only) {
+      max-width: $medium-width;
+    }
+  }
+
+  .slick-slide {
+    img {
+      max-width: $large-width;
+
+      @include breakpoint(small only) {
+        width: 100%;
+      }
+
+      @include breakpoint(medium only) {
+        max-width: $medium-width;
+      }
+    }
+  }
+
+  .divider {
+    width: $large-width;
+    border: solid 1px #e1e1e1;
+    margin: 45px auto 45px auto;
+    border-right : 0;
+    border-left: 0;
+    @include breakpoint(small only) {
+      width: 100%;
+      margin: 17px auto 17px auto;
+    }
+    @include breakpoint(medium only) {
+      width: $medium-width;
+      margin: 25px auto 25px auto;
+    }
+  }
+
+  .top-btn {
+    position: relative;
+    .close {
+      right: 20px;
+      top: 20px;
+      position: absolute;
+      z-index: 3;
+      @include breakpoint(small only) {
+        @include size(31px);
+        background-size: 31px 31px;
+        right: 30px;
+        top: 30px;
+      }
+    }
+  }
+
+  .header {
+    padding-top: 50px;
+    text-align: center;
+
+    .logo {
+      width: 100%;
+      max-width: $large-width;
+      padding-top: 25px;
+
+      @include breakpoint(medium only) {
+        max-width: $medium-width;
+      }
+
+      @include breakpoint(small only) {
+        max-width: $small-width;
+      }
+    }
+
+    h2 {
+      margin: -60px 0 60px 0;
+    }
+
+    @include breakpoint(small only) {
+      padding-top: 70px;
+      h2 {
+        margin: -35px 0 35px 0;
+      }
+    }
+    @include breakpoint(medium only) {
+      padding-top: 40px;
+      h2 {
+        margin: -45px 0 40px 0;
+      }
+    }
+  }
+
+  .white-bg {
+    background-color: #fff;
+  }
+
+  .about-images {
+    padding: 30px 0;
+    text-align: center;
+
+    img {
+      height: auto;
+      max-height: 230px;
+      margin-right: 1%;
+    }
+  }
+
+}

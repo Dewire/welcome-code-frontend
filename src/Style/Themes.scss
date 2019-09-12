@@ -1,0 +1,261 @@
+$primary-green-color: #2ba777;
+$secondary-green-color: #beeaae;
+$btn-hover-green-color: #198A57;
+$btn-hover-text-green-color: #95d3bb;
+$btn-box-shadow-green-color: #0E723F;
+
+$primary-orange-color: #de5f3b;
+$secondary-orange-color: #f7d1b6;
+$btn-hover-orange-color: #c44521;
+$btn-hover-text-orange-color: #d3a697;
+$btn-box-shadow-orange-color: #ae3d1e;
+
+$primary-blue-color: #4a90a6;
+$secondary-blue-color: #b3dfe3;
+$btn-hover-blue-color: #3f7b8d;
+$btn-hover-text-blue-color: #97b5d3;
+$btn-box-shadow-blue-color: #376b7b;
+
+$themes-primary: (
+  green-primary: (
+    colorString: 'green',
+    color: $primary-green-color,
+    backgroundColor: $primary-green-color,
+    borderColor: $primary-green-color,
+    btnHoverBackgroundColor: $btn-hover-green-color,
+    btnHoverTextColor: $btn-hover-text-green-color,
+    btnBoxShadowColor: $btn-box-shadow-green-color,
+  ),
+  orange-primary: (
+    colorString: 'orange',
+    color: $primary-orange-color,
+    backgroundColor: $primary-orange-color,
+    borderColor: $primary-orange-color,
+    btnHoverBackgroundColor: $btn-hover-orange-color,
+    btnHoverTextColor: $btn-hover-text-orange-color,
+    btnBoxShadowColor: $btn-box-shadow-orange-color,
+  ),
+  blue-primary: (
+    colorString: 'blue',
+    color: $primary-blue-color,
+    backgroundColor: $primary-blue-color,
+    borderColor: $primary-blue-color,
+    btnHoverBackgroundColor: $btn-hover-blue-color,
+    btnHoverTextColor: $btn-hover-text-blue-color,
+    btnBoxShadowColor: $btn-box-shadow-blue-color,
+  ),
+);
+
+$themes-secondary: (
+  green-secondary: (
+    color: $secondary-green-color,
+    backgroundColor: $secondary-green-color,
+  ),
+  orange-secondary: (
+    color: $secondary-orange-color,
+    backgroundColor: $secondary-orange-color,
+  ),
+  blue-secondary: (
+    color: $secondary-blue-color,
+    backgroundColor: $secondary-blue-color,
+  ),
+);
+
+$theme-icons: (
+  car: (
+    'green': '../Images/Icons/icon_car_green.svg',
+    'orange': '../Images/Icons/icon_car_orange.svg',
+    'blue': '../Images/Icons/icon_car_blue.svg',
+  ),
+  bus: (
+    'green': '../Images/Icons/icon_bus_green.svg',
+    'orange': '../Images/Icons/icon_bus_orange.svg',
+    'blue': '../Images/Icons/icon_bus_blue.svg',
+  ),
+  bike: (
+    'green': '../Images/Icons/icon_bike_green.svg',
+    'orange': '../Images/Icons/icon_bike_orange.svg',
+    'blue': '../Images/Icons/icon_bike_blue.svg',
+  ),
+  walk: (
+    'green': '../Images/Icons/icon_walk_green.svg',
+    'orange': '../Images/Icons/icon_walk_orange.svg',
+    'blue': '../Images/Icons/icon_walk_blue.svg',
+  ),
+  checkboxUnchecked: (
+    'green': '../Images/Icons/icon_checkbox_unchecked_green.svg',
+    'orange': '../Images/Icons/icon_checkbox_unchecked_orange.svg',
+    'blue': '../Images/Icons/icon_checkbox_unchecked_blue.svg',
+  ),
+  checkboxChecked: (
+    'green': '../Images/Icons/icon_checkbox_checked_green.svg',
+    'orange': '../Images/Icons/icon_checkbox_checked_orange.svg',
+    'blue': '../Images/Icons/icon_checkbox_checked_blue.svg',
+  ),
+  collapse: (
+    'green': '../Images/Icons/icon_collapse_green.svg',
+    'orange': '../Images/Icons/icon_collapse_orange.svg',
+    'blue': '../Images/Icons/icon_collapse_blue.svg',
+  ),
+  expand: (
+    'green': '../Images/Icons/icon_expand_green.svg',
+    'orange': '../Images/Icons/icon_expand_orange.svg',
+    'blue': '../Images/Icons/icon_expand_blue.svg',
+  ),
+  mapPinFav: (
+    'green': '../Images/Icons/icon_map_pin_fav_green.svg',
+    'orange': '../Images/Icons/icon_map_pin_fav_orange.svg',
+    'blue': '../Images/Icons/icon_map_pin_fav_blue.svg',
+  ),
+  mapPinTransparent: (
+    'green': '../Images/Icons/icon_map_pin_transparent_green.svg',
+    'orange': '../Images/Icons/icon_map_pin_transparent_orange.svg',
+    'blue': '../Images/Icons/icon_map_pin_transparent_blue.svg',
+  ),
+  mapPin: (
+    'green': '../Images/Icons/icon_map_pin_green.svg',
+    'orange': '../Images/Icons/icon_map_pin_orange.svg',
+    'blue': '../Images/Icons/icon_map_pin_blue.svg',
+  ),
+  radioChecked: (
+    'green': '../Images/Icons/icon_radio_button_checked_green.svg',
+    'orange': '../Images/Icons/icon_radio_button_checked_orange.svg',
+    'blue': '../Images/Icons/icon_radio_button_checked_blue.svg',
+  ),
+  radioUnchecked: (
+    'green': '../Images/Icons/icon_radio_button_unchecked_green.svg',
+    'orange': '../Images/Icons/icon_radio_button_unchecked_orange.svg',
+    'blue': '../Images/Icons/icon_radio_button_unchecked_blue.svg',
+  ),
+);
+
+/* EXAMPLE themify
+** SASS
+  .explore-button {
+    padding: 0;
+    background: preload-image("../Images/Icons/icon_arrow_down.svg") no-repeat 50% 75%;
+
+    @include themifyBoth($themes-primary) {
+      background-color: themed('backgroundColor');
+    }
+  }
+** CSS
+  .explore-button {
+    padding: 0;
+    background: preload-image("../Images/Icons/icon_arrow_down.svg") no-repeat 50% 75%;
+  }
+  .theme-green-primary .explore-button {
+    background-color: #2ba777;
+  }
+  .theme-orange-primary .explore-button {
+    background-color: #de5f3b;
+  }
+  .theme-blue-primary .explore-button {
+    background-color: #4a90a6;
+  }
+*/
+@mixin themify($themes: $themes-primary) {
+  @each $theme, $map in $themes {
+    .theme-#{$theme} & {
+      $theme-map: () !global;
+      @each $key, $submap in $map {
+        $value: map-get(map-get($themes, $theme), '#{$key}');
+        $theme-map: map-merge($theme-map, ($key: $value)) !global;
+      }
+      @content;
+      $theme-map: null !global;
+    }
+  }
+}
+/*
+*** EXAMPLE themifySvg
+** SASS
+  .commute-container {
+    &.car {
+      @include themifySvg('car', '', auto, 34px);
+      background-position: 0 center;
+    }
+  }
+** CSS
+  .commute-container.car {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto 34px;
+    width: auto;
+    height: 34px;
+    background-image: preload-image("");
+    background-position: 0 center;
+  }
+  .theme-green-primary .commute-container.car {
+    background-image: linear-gradient(transparent, transparent), preload-image("../Images/Icons/icon_car_green.svg");
+  }
+  .theme-orange-primary .commute-container.car {
+    background-image: linear-gradient(transparent, transparent), preload-image("../Images/Icons/icon_car_orange.svg");
+  }
+  .theme-blue-primary .commute-container.car {
+    background-image: linear-gradient(transparent, transparent), preload-image("../Images/Icons/icon_car_blue.svg");
+  }
+*/
+@mixin themifySvg($icon, $pngPath, $width, $height, $elementSize: true, $themes: $themes-primary, $icons-theme: $theme-icons) {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: $width $height;
+  background-image: preload-image("#{$pngPath}");
+  @if ($elementSize) {
+    width: $width;
+    height: $height;
+  }
+
+  $icons: map-get($icons-theme, $icon);
+  @each $theme, $map in $themes {
+    .theme-#{$theme} & {
+      $svgPath: map-get($icons, map-get($map, 'colorString'));
+      background-image: linear-gradient(transparent, transparent), preload-image("#{$svgPath}");
+      $tmp: preload-image($svgPath);
+      @content;
+    }
+  }
+}
+
+/*
+*** EXAMPLE themifyBackground
+** SASS
+  .theme {
+    .icon-pin {
+      position: absolute;
+      z-index: 2;
+      &.icon-theme {
+        @include themifyBackground('mapPin');
+      }
+    }
+  }
+** CSS
+  .theme .icon-pin {
+  position: absolute;
+  z-index: 2;
+  }
+  .theme-green-primary .theme .icon-pin.icon-theme {
+  background-image: linear-gradient(transparent, transparent), preload-image("../Images/Icons/icon_map_pin_green.svg");
+  }
+  .theme-orange-primary .theme .icon-pin.icon-theme {
+  background-image: linear-gradient(transparent, transparent), preload-image("../Images/Icons/icon_map_pin_orange.svg");
+  }
+  .theme-blue-primary .theme .icon-pin.icon-theme {
+  background-image: linear-gradient(transparent, transparent), preload-image("../Images/Icons/icon_map_pin_blue.svg");
+  }
+*/
+@mixin themifyBackground($icon, $themes: $themes-primary, $icons-theme: $theme-icons) {
+  $icons: map-get($icons-theme, $icon);
+  @each $theme, $map in $themes {
+    .theme-#{$theme} & {
+      $svgPath: map-get($icons, map-get($map, 'colorString'));
+      background-image: linear-gradient(transparent, transparent), preload-image("#{$svgPath}");
+      $tmp: preload-image($svgPath);
+      @content;
+    }
+  }
+}
+
+@function themed($key) {
+  @return map-get($theme-map, $key);
+}

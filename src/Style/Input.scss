@@ -1,0 +1,62 @@
+.text-input-wrapper {
+  position: relative;
+
+  label {
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .text-input {
+    border-radius: 5px;
+    border: solid 2px;
+    width: calc(100% - 20px);
+    padding: 0 10px;
+    font-size: 18px;
+    height: 40px;
+
+    &.search {
+      border-color: #1f2f38;
+    }
+
+    &.theme {
+      background-color: #f3f4f5;
+      font-size: 16px;
+      height: 36px;
+
+      @include themify() {
+        border-color: themed('borderColor');
+      }
+    }
+
+    &.sharable-url {
+      color: #899195;
+      width: calc(100% - 50px);
+      padding-left: 35px;
+      cursor: pointer;
+    }
+  }
+
+  .clear-search-icon {
+    @include svg-icon-w-fallback('../Images/Icons/icon_clear_search.svg', '', 16px, 16px);
+    @include absolute($bottom: 12px, $right: 10px);
+
+    &.search-placeholder-padding {
+      @include absolute($top: calc(50% - 8px), $right: 45px);
+    }
+  }
+
+  .search-icon {
+    @include svg-icon-w-fallback('../Images/Icons/icon_search.svg', '', 21px, 22px);
+    @include size(40px, 44px);
+    @include absolute($top: 0, $right: -4px);
+    background-color: #1f2f38;
+    border-radius: 0 5px 5px 0;
+  }
+
+  .share-url-icon {
+    position: absolute;
+    @include svg-icon-w-fallback('../Images/Icons/icon_share_url.svg', '', 20px, 20px);
+    @include absolute($top: 10px, $left: 10px);
+    cursor: pointer;
+  }
+}

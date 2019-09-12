@@ -1,0 +1,56 @@
+[data-whatinput="mouse"], [data-whatinput="touch"]  {
+  button {
+    &:focus {
+      outline: 0;
+    }
+  }
+  li {
+    &:focus {
+      outline: 0;
+    }
+  }
+  input {
+    &:focus {
+      outline: 0;
+    }
+  }
+
+  label {
+    outline: 0 !important;
+  }
+
+  a {
+    &:focus {
+      outline: 0;
+    }
+  }
+
+  .slick-list {
+  	&:focus {
+  		outline: none;
+  	}
+  }
+
+  .slick-dots {
+  	li {
+  		button {
+        outline: none;
+  			&:hover {
+  				outline: none;
+  			}
+  			&:focus {
+  				outline: none;
+  			}
+  		}
+  	}
+  }
+
+  .map-view-container {
+    border: none !important;
+  }
+
+  .rc-slider-handle:focus {
+    outline: none;
+  }
+
+}

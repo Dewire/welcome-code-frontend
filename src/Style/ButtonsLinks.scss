@@ -1,0 +1,125 @@
+.blue-link {
+  color: #3693e6;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+
+  &.underline {
+    text-decoration: underline;
+  }
+
+  &.heart-icon {
+    @include svg-icon-w-fallback( '../Images/Icons/icon_save_heart.svg', '', 18px, 18px);
+    font-size: 15px;
+    padding-left: 24px;
+    background-position: 0;
+
+    &.filled {
+      @include svg-icon-w-fallback( '../Images/Icons/icon_save_heart_filled.svg', '', 18px, 18px);
+      background-position: 0;
+      @include breakpoint(small only){
+        background-position: 4px 0px;
+        background-size: 20px;
+      }
+    }
+
+    @include breakpoint(medium only){
+      font-size: 13px;
+    }
+
+    @include breakpoint(small only){
+      font-size: 15px;
+      background-size: 20px;
+      background-position: 4px 1px;
+      padding-left: 31px;
+    }
+  }
+  &.send-mail-icon {
+    @include svg-icon-w-fallback( '../Images/Icons/icon_send_mail.svg', '', 18px, 18px);
+    font-size: 15px;
+    padding-left: 24px;
+    background-position: 0;
+
+    @include breakpoint(medium only){
+      font-size: 13px;
+    }
+
+    @include breakpoint(small only){
+      font-size: 15px;
+      background-size: 20px;
+      background-position: 4px 1px;
+      padding-left: 31px;
+    }
+  }
+
+  &.share-icon {
+    @include svg-icon-w-fallback( '../Images/Icons/icon_share_blue.svg', '', 18px, 18px);
+    font-size: 15px;
+    padding-left: 24px;
+    background-position: 0;
+
+    @include breakpoint(medium only){
+      font-size: 13px;
+    }
+
+    @include breakpoint(small only){
+      font-size: 15px;
+      background-size: 20px;
+      background-position: 4px 1px;
+      padding-left: 31px;
+      height: 21px;
+    }
+  }
+}
+
+.btn {
+  cursor: pointer;
+  text-decoration: none;
+
+  &.close {
+    @include svg-icon-w-fallback('../Images/Icons/icon_close_black.svg', '', 20px, 20px);
+  }
+
+  &.close-circle {
+    @include svg-icon-w-fallback( '../Images/Icons/icon_card_close.svg', '', 31px, 32px);
+    background-color: transparent;
+    border: none;
+  }
+
+  &.icon {
+    &-share {
+      @include svg-icon-w-fallback-no-element-width('../Images/Icons/icon_share_white.svg', '', 18px, 18px);
+    }
+  }
+
+  &.theme {
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    border-radius: 5px;
+    height: 40px;
+    color: #FFF;
+    @include themify() {
+      background-color: themed('backgroundColor');
+    }
+
+    &.w100 {
+      width: 100% !important;
+    }
+
+    &:hover {
+      @include themify() {
+        color: themed('btnHoverTextColor');
+        background-color: themed('btnHoverBackgroundColor');
+      }
+    }
+
+    &:active {
+      @include themify() {
+        color: themed('btnHoverTextColor');
+        background-color: themed('btnHoverBackgroundColor');
+        box-shadow: inset 2px 3px 1px 0 themed('btnBoxShadowColor');
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+.distance-table {
+  @include themify() {
+    color: themed('color');
+  }
+
+  .heading {
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .row {
+    padding: 5px 10px;
+
+    p {
+      font-size: 18px;
+      margin: 0;
+    }
+
+    &:nth-child(even){
+      background-color: #F4F4F5;
+    }
+    .destination {
+      float: left;
+    }
+    .distance {
+      float: right;
+      font-weight: 600;
+    }
+  }
+}

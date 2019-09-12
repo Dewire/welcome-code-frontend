@@ -1,0 +1,94 @@
+@import 'CompareAreaColumn';
+@import 'CompareTypesColumn';
+.compare-favourites-wrapper {
+  z-index: 5;
+
+  /** Number of current compare categories **/
+  $top-value: 173;
+  @for $i from 0 through 5 {
+    @if $i != 0 {
+      $top-value: $top-value + 99;
+    }
+    .type-#{$i} {
+      top: #{$top-value}px;
+    }
+  }
+
+  .top {
+    p {
+      font-size: 25px;
+      font-weight: bold;
+      color: #1f2f38;
+      display: inline-block;
+      margin: 10px 0 10px 20px;
+    }
+    input {
+      float: right;
+      margin: 20px 20px 0 0;
+    }
+  }
+
+  .type {
+    @include themify() {
+      background-color: themed('backgroundColor');
+    }
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    text-align: center;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    height: 40px;
+    p {
+      line-height: 40px;
+
+      .pin-small {
+        width: auto;
+        height: 18px;
+        margin-left: 10px;
+      }
+    }
+  }
+
+  .prev-arrow {
+    top: 50%;
+  }
+  .next-arrow {
+    top: 50%;
+    right: 0;
+  }
+
+  .border-lr {
+    @include breakpoint(small only) {
+      border-left: 1px solid;
+      border-right: 1px solid;
+      border-color: #e1e1e1;
+      box-sizing: border-box;
+    }
+  }
+
+  .border-r {
+    border-right: 1px solid;
+    border-color: #e1e1e1;
+    box-sizing: border-box;
+  }
+
+  .compare-types {
+    box-sizing: border-box;
+    border-right: 1px solid rgba(177, 176, 176, 0.5);
+    max-width: 390px;
+    float: left;
+  }
+
+  .slider {
+    background-color: #ffffff;
+    position: relative;
+    overflow: auto;
+    .shadow {
+      @include absolute($top: 0, $bottom: 0, $left: 0);
+      width: 7px;
+      background-color: rgba(216, 216, 216, 0.5);
+    }
+  }
+}

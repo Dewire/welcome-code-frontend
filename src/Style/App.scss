@@ -1,0 +1,131 @@
+@import '~foundation-sites/scss/foundation';
+@include foundation-grid;
+@include foundation-float-classes;
+@include foundation-visibility-classes;
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,600');
+
+$large-width: 814px;
+$medium-width: 682px;
+$small-width: 325px;
+$xsmall-width: 300px;
+
+@import 'Mixins';
+@import 'Themes';
+@import 'Reset';
+@import 'Typography';
+@import 'ButtonsLinks';
+@import 'Leaflet';
+@import 'FrontPage';
+@import 'HousingListings';
+@import 'AreaCardComponent';
+@import 'ExploreButton';
+@import 'StartpageComponent';
+@import 'MapViewComponent';
+@import 'TopMenu';
+@import 'Filter';
+@import 'NavigationBar';
+@import 'MapIcons';
+@import 'TabComponent';
+@import 'FullViewPage';
+@import 'SlickSlider';
+@import 'AreaCarousel';
+@import 'Input';
+@import 'DistanceTable';
+@import 'StreetView';
+@import 'CommuteTime';
+@import 'AreaOverview';
+@import 'ExpandableContent';
+@import 'RcSlider';
+@import 'CommuteAutoComplete';
+@import 'FoldingCube';
+@import 'AreaFactsComponent';
+@import 'FactCarousel';
+@import 'CarouselArrows';
+@import 'CompareFavouritesComponent';
+@import 'ShareModal';
+@import 'LoadingIndicatorComponent';
+@import 'ImageSectionComponent';
+@import 'CommutePinModal';
+@import 'Checkbox';
+@import 'NoPageComponent';
+@import 'ChangeMunicipalityModal';
+@import 'LicenseComponent';
+@import 'Whatinput';
+
+.column,
+.columns {
+    min-height: 1px;
+}
+.row {
+  max-width: 100%;
+}
+
+.m0 {
+  margin: 0;
+}
+
+.m10 {
+  margin: 10px !important;
+}
+
+.mlr10 {
+  margin: 0 10px !important;
+}
+
+.mt10 {
+  margin-top: 10px;
+}
+
+.mt15 {
+  margin-top: 15px;
+}
+
+.mt25 {
+  margin-top: 25px !important;
+}
+
+.is-hidden {
+  position:absolute;
+  left:-10000px;
+  top:auto;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+}
+
+[data-whatinput="keyboard"]   {
+  .explore-button {
+    &:focus {
+      .btn-content {
+        box-shadow: 0 0 2px 2px #51a7e8;
+      }
+    }
+  }
+}
+
+.root-wrapper {
+  position: relative;
+}
+
+.noselect {
+  webkit-touch-callout:none; /* prevent callout to copy image, etc when tap to hold */
+	-webkit-text-size-adjust:none; /* prevent webkit from resizing text to fit */
+	-webkit-tap-highlight-color:rgba(0,0,0,0); /* prevent tap highlight color*/
+	-webkit-tap-highlight-color: transparent; /* prevent tap highlight color*/
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+.clear {
+  clear: both;
+}
+
+body:after {
+    @include load-images();
+}

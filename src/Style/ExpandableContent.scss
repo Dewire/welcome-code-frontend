@@ -1,0 +1,138 @@
+.expandable-content {
+
+  @include breakpoint(small only) {
+    .section-content {
+      max-height: 0;
+      overflow: hidden;
+      @include transition(max-height .35s);
+    }
+  }
+
+  .page-width {
+      width: $large-width;
+      margin: 0 auto;
+
+      @include breakpoint(medium only) {
+        width: $medium-width;
+      }
+
+      @include breakpoint(small only) {
+        width: $small-width;
+      }
+
+      @media screen and (max-width: 320px) {
+        width: $xsmall-width;
+      }
+  }
+
+  .expandable-header {
+    color: #000;
+    @include breakpoint(small only) {
+      display: none;
+    };
+  }
+
+  .expandable-input {
+    position: absolute !important;
+    left: -9999px !important;
+    &:checked {
+      &~.expandable-label {
+        @include themifySvg('collapse', '', 29px, 29px, false);
+        background-position: 95%;
+
+        @include breakpoint(small only) {
+          span {
+            white-space: normal;
+          }
+        }
+      }
+
+      &~.section-content {
+        /* We need to set a specific heigh, otherwise transition wont work */
+        max-height: 10000px;
+      }
+    }
+
+    &:focus + label {
+      @include themify() {
+        outline: 1px dashed themed('color');
+      }
+    }
+  }
+
+  .expandable-label {
+    color: #000;
+    display: none;
+
+    @include breakpoint(small only) {
+      display: block;
+      font-size: 16px;
+      font-weight: bold;
+      display: block;
+      padding: 2px 0 2px 0;
+      @include themifySvg('expand', '', 29px, 29px, false);
+      background-position: 95%;
+
+      span {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 275px;
+        display: block;
+      }
+    };
+  }
+
+  &.always-expandable {
+      padding: 10px 0;
+      border-bottom: solid 1px #e1e1e1;
+
+      .section-content {
+        max-height: 0;
+        overflow: hidden;
+        @include transition(max-height .35s);
+      }
+
+      .page-width {
+          width: 100%;
+          margin: 0 auto;
+      }
+
+      .expandable-header {
+        color: #000;
+        display: none;
+      }
+
+      .expandable-input {
+        position: absolute !important;
+        left: -9999px !important;
+        &:checked {
+          &~.expandable-label {
+            @include themifySvg('collapse', '', 29px, 29px, false);
+            background-position: 100%;
+          }
+
+          &~.section-content {
+            /* We need to set a specific heigh, otherwise transition wont work */
+            max-height: 1000px;
+          }
+        }
+      }
+
+      .expandable-label {
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: 600;
+        display: block;
+        padding: 2px 0 2px 0;
+        @include themifySvg('expand', '', 29px, 29px, false);
+        background-position: 100%;
+      }
+
+      input:checked + label {
+        @include themify() {
+          color: themed('color');
+        }
+      }
+  }
+}

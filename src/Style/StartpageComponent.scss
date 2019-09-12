@@ -1,0 +1,109 @@
+.start-view-wrapper {
+  @include absolute($top: 0, $left: 0, $right: 0);
+  pointer-events: 0;
+}
+
+.start-view-container {
+  @include absolute($top: 0, $left: 0, $right: 0);
+  @include transition(all .5s cubic-bezier(0, 1, 0.5, 1));
+  @include box-shadow(0px,0px,25px,#000);
+  color: #FFFFFF;
+  height: 50%;
+  min-height: 500px;
+  z-index: 4;
+
+  @include breakpoint(medium down){
+    min-height: 50%;
+  }
+
+  @include breakpoint(medium down){
+    min-height: 400px;
+  }
+
+  .description {
+    font-size: 18px;
+    text-align: center;
+    @include breakpoint(small only) {
+      font-size: 15px;
+    }
+    @include breakpoint(medium only) {
+      font-size: 16px;
+    }
+  }
+
+  &.hidden {
+    transform: translate(0,-100%);
+    transform: translate3d(0,-100%,0);
+    @include box-shadow(0px,0px,0px,#000);
+
+    @include breakpoint(small only) {
+      top: -18px;
+    }
+  };
+
+  .bg-image-container {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+
+    .bg-overlay {
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5);
+    }
+  }
+
+  .wrapper {
+    @include absolute($top: 0, $left: 0, $right: 0);
+    padding: 30px;
+
+    .text-wrapper {
+      max-width: $large-width;
+
+      h1 {
+        margin-bottom: 0;
+      }
+
+      @include breakpoint(small only) {
+        max-height: 230px;
+        overflow-y: auto;
+      }
+    }
+
+    &.hidden {
+      display: none;
+    };
+  }
+
+  .logo-container {
+    height: 105px;
+    @include breakpoint(medium down) {      
+      height: 75px;
+    }
+
+    img {
+      @include absolute($top: 35px);
+      width: auto;
+      max-height: 105px;
+      max-width: 200px;
+      @include breakpoint(medium down) {
+        max-width: 150px;
+        max-height: 75px;
+      }
+    }
+  }
+
+    ul {
+      float: right;
+      position: relative;
+    }
+    li {
+      list-style: none;
+      float: left;
+      margin-right: 15px;
+      img {
+        width: 28px;
+      }
+    }
+}

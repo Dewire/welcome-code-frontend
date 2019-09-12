@@ -1,0 +1,107 @@
+.housing-container {
+  font-size: 16px;
+
+  .housing-link {
+    color: #000;
+    border-bottom: solid 1px #e1e1e1;
+    display: block;
+
+    &:last-child,
+    &:nth-last-child(2) {
+      border: none;
+    }
+
+    &:visited{
+      color: #000;
+    }
+
+    @include breakpoint(small only) {
+      border-bottom: solid 3px #e1e1e1;
+
+      &:last-child, &:nth-last-child(2) {
+        border-bottom: solid 3px #e1e1e1;
+      }
+    }
+  }
+
+  .row {
+    &.housing {
+      margin-top: 10px;
+      padding-bottom: 10px;
+      line-height: 23px;
+
+      p {
+        color: #000;
+      }
+
+      @include breakpoint(small only) {
+        margin-top: 0;
+        padding-bottom: 0;
+        line-height: 19px;
+      }
+    }
+  }
+
+  .image {
+    height: 75px;
+    background-size: cover;
+    background-position: center;
+    margin: auto 30px auto auto;
+    @include breakpoint(small only) {
+      height: 85px;
+      margin-right: 10px;
+    }
+  }
+
+  .blue-link {
+    div {
+      float: left;
+      line-height: 25px;
+
+      @include breakpoint(small only) {
+        margin-top: 30px;
+        font-size: 13px;
+      }
+    }
+
+    .booli-icon {
+      @include svg-icon-w-fallback('../Images/Icons/booli_logo.svg', '../Images/Icons/booli_logo.png', 40px, 20px);
+      background-position: center 4px;
+      background-size: 40px 14px;
+      width: 48px;
+      height: 20px;
+    }
+  }
+
+  h2 {
+    margin-bottom: 10px;
+  }
+
+  p {
+    margin: 0;
+
+    &.no-results {
+      margin: 15px 0;
+    }
+
+    &.price {
+      font-weight: bold;
+    }
+
+    &.address {
+      @include themify() {
+        color: themed('color');
+      }
+      font-weight: bold;
+    }
+
+    @include breakpoint(small only) {
+      font-size: 12px;
+
+      &.address {
+        margin-top: 5px;
+        font-size: 13px;
+      }
+    }
+  }
+}

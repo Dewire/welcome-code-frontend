@@ -1,0 +1,4 @@
+.loading-modal {
+  @include absolute($top: 50%, $left: 20px, $right: 20px);
+  outline: none;
+}

@@ -1,0 +1,346 @@
+.nav-bar-enter {
+  transform:   translate(100%,0);
+  transform: translate3d(100%,0,0);
+
+  &.nav-bar-enter-active {
+  	transform:   translate(0,0);
+  	transform: translate3d(0,0,0);
+  	transition-duration: 500ms;
+  	transition-timing-function: cubic-bezier(0.175, 0.665, 0.320, 1), linear;
+  }
+}
+
+.nav-bar-leave {
+  transform:   translate(0,0);
+  transform: translate3d(0,0,0);
+  &.nav-bar-leave-active {
+    transform:   translate(100%,0);
+    transform: translate3d(100%,0,0);
+    transition-duration: 500ms;
+  	transition-timing-function: cubic-bezier(0.175, 0.665, 0.320, 1), linear;
+  }
+}
+
+.inner-wrapper {
+  @include relative($top: 50%);
+  transform: translateY(-50%);
+}
+
+.navigation-bar-wrapper {
+  @include size(95px, 100%);
+  @include fixed($top: 0, $right: 0);
+  background-color: #1f2f38;
+  color: #fefefe;
+  z-index: 5;
+
+  @include breakpoint(medium only) {
+    width: 67px;
+  }
+
+  .contact-circle {
+    @include size(15px);
+    background: red;
+    border-radius: 50%;
+    display: none;
+
+    p {
+      margin: 0;
+      font-size: 13px;
+      @include absolute($left: 6px, $bottom: -2px);
+    }
+  }
+
+  @include breakpoint(small only) {
+    width: 90px;
+    z-index: 1;
+
+    &.hamburger {
+      background: transparent;
+      height: 0;
+
+      .contact-circle {
+        @include absolute($top: 22px, $right: 22px);
+        display: block;
+
+        p {
+          @include absolute($left: 6px, $bottom: -3px);
+        }
+      }
+
+      .sticky-top {
+        background: rgba(0, 0, 0, 0.17);
+      }
+
+      .sticky-bottom {
+        display: none;
+      }
+
+      .inner-wrapper {
+        visibility: hidden;
+      }
+    }
+  }
+
+  .sticky-top {
+    @include absolute($top: 0, $right: 0);
+    padding: 30px;
+  }
+
+  .sticky-bottom {
+    @include absolute($bottom: 0, $right: 0);
+    padding: 30px;
+  }
+
+  label {
+    display: block;
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    padding: 10px 0;
+    border-bottom: solid 1px #3A474F;
+
+    @include breakpoint(medium only){
+      font-size: 12px;
+    }
+
+    @include breakpoint(small only) {
+      padding: 5px 0;
+    }
+
+    &.border-top {
+      border-top: solid 1px #3A474F;
+    }
+  }
+
+  .input-wrapper {
+    height: 80px;
+  }
+
+  $label-tags-hover: 'label:active, label:hover';
+  #{$label-tags-hover} {
+    color: #1f2f38;
+    @include themify($themes-secondary) {
+      background-color: themed('backgroundColor');
+    }
+  }
+
+  $input-tags: 'input, input:active, input:hover, input:visited';
+  $input-tags-hover: 'input:active, input:hover';
+
+  #{$input-tags} {
+    margin: 0 auto;
+    border: none;
+    background-color: transparent;
+    display: block;
+    padding-top: 5px;
+    cursor: pointer;
+  }
+
+  #{$input-tags-hover} {
+    color: #1f2f38;
+  }
+
+  $icon-tags-hover: '&:active, &:hover';
+  .close-button {
+    background-image: preload-image("../Images/Icons/icon_close_gray.svg");
+    @include size(29px, 30px);
+  }
+
+  .hamburger-button {
+    background-image: preload-image("../Images/Icons/icon_hamburger_menu.svg");
+    @include size(29px, 29px);
+  }
+
+  $icon-size: (width: 40px, height: 35px);
+
+  .icon-filter {
+    background: preload-image("../Images/Icons/icon_filter_white.svg") no-repeat;
+    @include size($icon-size...);
+    #{$icon-tags-hover} {
+      background: preload-image("../Images/Icons/icon_filter_black.svg") no-repeat;
+    }
+
+    @include breakpoint(medium down){
+      background-size: 28px 24px;
+      background-position: center;
+      #{$icon-tags-hover} {
+        background-size: 29px 25px;
+        background-position: center;
+      }
+    }
+  }
+
+  .icon-favourites {
+    background: preload-image("../Images/Icons/icon_favourites_white.svg") no-repeat;
+    @include size($icon-size...);
+    #{$icon-tags-hover} {
+      background: preload-image("../Images/Icons/icon_favourites_black.svg") no-repeat;
+    }
+
+    @include breakpoint(medium down){
+      background-size: 29px 25px;
+      background-position: center;
+      #{$icon-tags-hover} {
+        background-size: 29px 25px;
+        background-position: center;
+      }
+    }
+    &.has-favourites{
+      background: preload-image("../Images/Icons/icon_save_heart_filled.svg") no-repeat;
+      width: 37px;
+      @include breakpoint(medium down){
+        background-size: 29px 25px;
+        background-position: center;
+      }
+    }
+  }
+
+  .icon-search {
+    background: preload-image("../Images/Icons/icon_search_white.svg") no-repeat;
+    @include size($icon-size...);
+    #{$icon-tags-hover} {
+      background: preload-image("../Images/Icons/icon_search_black.svg") no-repeat;
+    }
+
+    @include breakpoint(medium down){
+      background-size: 26px 31px;
+      background-position: center;
+      #{$icon-tags-hover} {
+        background-size: 26px 31px;
+        background-position: center;
+      }
+    }
+  }
+
+  .icon-contact {
+    background: preload-image("../Images/Icons/icon_contact_white.svg") no-repeat;
+    background-size: 40px;
+    margin-top: 10px;
+
+    @include size($icon-size...);
+    #{$icon-tags-hover} {
+      margin-top: 10px;
+      background: preload-image("../Images/Icons/icon_contact_black.svg") no-repeat;
+      background-size: 40px;
+    }
+
+    @include breakpoint(medium down){
+      background-size: 29px 21px;
+      background-position: center;
+      margin-top: 0px;
+      #{$icon-tags-hover} {
+        margin-top: 0px;
+        background-size: 29px 21px;
+        background-position: center;
+      }
+    }
+  }
+
+  .icon-information {
+    background-image: preload-image("../Images/Icons/icon_information_gray.svg");
+    width: 27px;
+    height: 27px;
+  }
+
+  .contact-row {
+    position: relative;
+
+    .contact-circle {
+      @include absolute($top: 13px, $right: 18px);
+      display: block;
+
+      @include breakpoint(medium only) {
+        right: 13px;
+      }
+      @include breakpoint(small only) {
+        right: 25px;
+        top: 6px;
+      }
+    }
+  }
+
+  .selected {
+    color: #1f2f38;
+    @include themify($themes-secondary) {
+      background-color: themed('backgroundColor');
+    }
+
+    .icon-contact {
+      background: preload-image("../Images/Icons/icon_contact_black.svg") no-repeat;
+      background-size: 40px;
+
+      @include breakpoint(medium down){
+        background-size: 29px 21px;
+        background-position: center;
+        margin-top: 0px;
+      }
+    }
+
+    .icon-search {
+      background: preload-image("../Images/Icons/icon_search_black.svg") no-repeat;
+
+      @include breakpoint(medium down){
+        background-size: 26px 31px;
+        background-position: center;
+      }
+    }
+
+    .icon-favourites {
+      background: preload-image("../Images/Icons/icon_favourites_black.svg") no-repeat;
+
+      @include breakpoint(medium down){
+        background-size: 29px 25px;
+        background-position: center;
+      }
+
+      &.has-favourites {
+        background: preload-image("../Images/Icons/icon_save_heart_filled.svg") no-repeat;
+        width: 37px;
+        @include breakpoint(medium down){
+          background-size: 29px 25px;
+          background-position: center;
+        }
+      }
+    }
+
+    .icon-filter {
+      background: preload-image("../Images/Icons/icon_filter_black.svg") no-repeat;
+
+      @include breakpoint(medium down){
+        background-size: 28px 24px;
+        background-position: center;
+      }
+    }
+  }
+  .drop-down-wrapper {
+    &.navigationbar {
+      width: 348px;
+      bottom: 64px;
+      right: 25px;
+      @media screen and (max-width: 320px) {
+        width: 285px;
+      }
+    }
+    .arrow-down {
+      width: 0;
+      height: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-top: 10px solid #FFF;
+      float: right;
+      margin-right: 10px;
+    }
+    .btn {
+      cursor: pointer;
+      text-decoration: none;
+
+      &.close {
+        @include svg-icon-w-fallback('../Images/Icons/icon_close_black.svg', '', 16px, 16px);
+        position: absolute;
+        right: 13px;
+        top: 13px;
+      }
+    }
+   }
+}

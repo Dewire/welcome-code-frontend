@@ -1,0 +1,126 @@
+.top-menu {
+  $a-tags: 'a, a:active, a:hover, a:visited';
+  $a-tags-active: 'a:active, a:hover, a:focus';
+
+  #{$a-tags} {
+    color: #fff;
+    text-decoration: none;
+  }
+  #{$a-tags-active} {
+    @include themify() {
+      color: themed('color');
+    }
+  }
+  li {
+    cursor: pointer;
+    text-decoration: none;
+    &:focus {
+      @include themify() {
+        color: themed('color');
+      }
+    }
+    &:hover {
+      @include themify() {
+        color: themed('color');
+      }
+    }
+  }
+  .language-selected {
+    @include themify() {
+      color: themed('color');
+    }
+  }
+}
+.drop-down-wrapper {
+  position: absolute;
+  input {
+    position: absolute;
+    left: -9999px;
+    &:focus + label {
+      @include themify() {
+        outline: 1px dashed themed('color');
+      }
+    }
+  }
+  label {
+    cursor: pointer;
+    display: inline-block;
+    width: 90%;
+  }
+  .checked {
+    @include themifyBackground('radioChecked');
+    background-size: 30px 30px;
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+  .unchecked {
+    @include themifyBackground('radioUnchecked');
+    background-size: 30px 30px;
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+  .arrow-up {
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid #FFF;
+  }
+  &.information {
+    top: 90px;
+    right: 45px;
+
+    @include breakpoint(small only){
+      right: 20px;
+      left: 20px;
+    }
+
+    .arrow-up {
+      float: right;
+      margin-right: 67px;
+    }
+  }
+  &.language {
+    top: 90px;
+    right: 20px;
+
+    @include breakpoint(small only){
+      left: 20px;
+    }
+
+    .arrow-up {
+      float: right;
+      margin-right: 25px;
+    }
+  }
+  .dd-inner-wrapper {
+    clear: both;
+    float: left;
+    width: 350px;
+    height: 120px;
+    border: 1px #000;
+    border-radius: 5px;
+    background: #FFF;
+
+    @include breakpoint(small only){
+      width: 100%;
+    }
+
+    .row {
+      font-size: 20px;
+      font-weight: bold;
+      color: #1f2f38;
+      padding: 15px 0 10px 40px;
+
+      a {
+        color: #1f2f38;
+        text-decoration: none;
+        display: block;
+      }
+    }
+
+    .separator {
+      border-bottom: solid 1px #e1e1e1;
+    }
+  }
+}

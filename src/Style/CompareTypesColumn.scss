@@ -1,0 +1,68 @@
+.compare-types-wrapper {
+  color: #1f2f38;
+  .top-wrapper {
+    position: relative;
+    padding: 40px 25px 0px;
+    border-bottom: 1px solid;
+    border-color: #e1e1e1;
+    height: 254px;
+    @include breakpoint(medium only) {
+      height: 164px;
+    }
+    .close-wrapper {
+      @include absolute($top: 20px, $right: 20px);
+    }
+    .text-content {
+      max-width: 320px;
+      p {
+        font-size: 15px;
+        @include breakpoint(medium only) {
+          font-size: 13px;
+        }
+        &.bottom {
+          @include absolute($bottom: 0);
+        }
+      }
+    }
+  }
+  .rows-wrapper {
+    @include themify() {
+      color: themed('color');
+    }
+
+    .pin {
+      width: auto;
+      height: 26px;
+      margin: 0 0px 0 10px;
+
+      @include breakpoint(medium down) {
+        width: auto;
+        height: 24px;
+      }
+    }
+
+    div {
+      height: 100px;
+      padding-left: 25px;
+      @include even {
+        background-color: #f6f6f6;
+      }
+      @include odd {
+        background-color: #fff;
+      }
+      @include breakpoint(medium only) {
+        height: 80px;
+      }
+      p {
+        font-size: 18px;
+        font-weight: 600;
+        margin: 0;
+        line-height: 100px;
+        @include breakpoint(medium only) {
+          font-size: 15px;
+          line-height: 80px;
+        }
+      }
+    }
+  }
+}

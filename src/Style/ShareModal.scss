@@ -1,0 +1,40 @@
+.ReactModal__Overlay {
+  z-index: 5;
+}
+
+.share-modal {
+  font-size: 15px;
+  .preamble {
+    font-weight: 600;
+    color: #899195;
+    span {
+      margin-left: 5px;
+      color: #1f2f38;
+      text-transform: capitalize;
+    }
+  }
+  .close {
+    @include absolute($top: 20px, $right: 20px);
+  }
+}
+
+.modal-base {
+  border: 1px solid rgb(204, 204, 204);
+  background: rgb(255, 255, 255);
+  overflow: hidden;
+  border-radius: 4px;
+  outline: none;
+  padding: 20px;
+}
+
+.full-modal {
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  top: 40%;
+  width: 350px;
+  @include breakpoint(small only) {
+    width: 250px;
+  }
+}
